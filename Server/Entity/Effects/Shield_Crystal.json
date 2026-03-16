@@ -1,0 +1,61 @@
+{
+  "Duration": 1,
+  "DamageResistance": {
+    "Physical": [
+      {
+        "Amount": 1.0,
+        "CalculationType": "Multiplicative"
+      }
+    ],
+    "Slashing": [
+      {
+        "Amount": 1.0,
+        "CalculationType": "Multiplicative"
+      }
+    ],
+    "Bludgeoning": [
+      {
+        "Amount": 1.0,
+        "CalculationType": "Multiplicative"
+      }
+    ],
+    "Projectile": [
+      {
+        "Amount": 1.0,
+        "CalculationType": "Multiplicative"
+      }
+    ],
+    "Fire": [
+      {
+        "Amount": 1.0,
+        "CalculationType": "Multiplicative"
+      }
+    ],
+    "Ice": [
+      {
+        "Amount": 1.0,
+        "CalculationType": "Multiplicative"
+      }
+    ],
+    "Poison": [
+      {
+        "Amount": 1.0,
+        "CalculationType": "Multiplicative"
+      }
+    ],
+    "Environment": [
+      {
+        "Amount": 1.0,
+        "CalculationType": "Multiplicative"
+      }
+    ]
+  },
+  "ApplicationEffects": {
+    "Particles": [
+      {
+        "SystemId": "Example_Shield"
+      }
+    ]
+  },
+  "Invulnerable": false
+}

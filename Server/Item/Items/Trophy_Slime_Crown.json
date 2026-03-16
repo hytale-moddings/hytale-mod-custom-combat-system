@@ -1,0 +1,23 @@
+{
+  "TranslationProperties": {
+    "Name": "Slime Crown",
+    "Description": "A trophy from the defeated Slime King"
+  },
+  "Model": "NPC/Beast/BossSlime/Model/Model_Crown.blockymodel",
+  "Texture": "NPC/Beast/BossSlime/Model/Texture.png",
+  "MaxStack": 1,
+  "Scale": 0.5,
+  "Icon": "Icons/ItemsGenerated/Trophy_Slime_Crown.png",
+  "IconProperties": {
+    "Scale": 0.9,
+    "Rotation": [
+      346,
+      152,
+      360
+    ],
+    "Translation": [
+      1,
+      -5
+    ]
+  }
+}

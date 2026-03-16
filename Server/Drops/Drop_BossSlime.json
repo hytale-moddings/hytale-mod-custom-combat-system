@@ -1,0 +1,27 @@
+{
+  "Container": {
+    "Type": "Choice",
+    "Containers": [
+      {
+        "Type": "Single",
+        "Item": {
+          "ItemId": "Ore_Crystal_Glow",
+          "QuantityMin": 2,
+          "QuantityMax": 4
+        },
+        "Weight": 100
+      },
+      {
+        "Type": "Single",
+        "Item": {
+          "ItemId": "Plant_Fruit_Enchanted"
+        },
+        "Weight": 60
+      },
+      {
+        "Type": "Empty",
+        "Weight": 40
+      }
+    ]
+  }
+}

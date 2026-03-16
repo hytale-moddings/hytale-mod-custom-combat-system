@@ -1,0 +1,110 @@
+{
+  "Model": "NPC/Beast/BossSlime/Model/Model_Medium.blockymodel",
+  "Texture": "NPC/Beast/BossSlime/Model/Texture_Medium.png",
+  "EyeHeight": 3.0,
+  "CrouchOffset": -0.3,
+  "HitBox": {
+    "Max": {
+      "X": 1.5,
+      "Y": 4.0,
+      "Z": 1.5
+    },
+    "Min": {
+      "X": -1.5,
+      "Y": 0,
+      "Z": -1.5
+    }
+  },
+  "Camera": {
+    "Pitch": {
+      "AngleRange": {
+        "Max": 15,
+        "Min": -15
+      },
+      "TargetNodes": [
+        "Head"
+      ]
+    },
+    "Yaw": {
+      "AngleRange": {
+        "Max": 15,
+        "Min": -15
+      },
+      "TargetNodes": [
+        "Head"
+      ]
+    }
+  },
+  "AnimationSets": {
+    "Walk": {
+      "Animations": [
+        {
+          "Animation": "NPC/Beast/BossSlime/Animations/Default/Walk.blockyanim"
+        }
+      ]
+    },
+    "Idle": {
+      "Animations": [
+        {
+          "Animation": "NPC/Beast/BossSlime/Animations/Default/Idle.blockyanim"
+        }
+      ]
+    },
+    "Death": {
+      "Animations": [
+        {
+          "Animation": "NPC/Beast/BossSlime/Animations/Default/Death.blockyanim",
+          "Loop": false
+        }
+      ]
+    },
+    "Walk_Backward": {
+      "Animations": [
+        {
+          "Animation": "NPC/Beast/BossSlime/Animations/Default/Walk_Backward.blockyanim"
+        }
+      ]
+    },
+    "Run": {
+      "Animations": [
+        {
+          "Animation": "NPC/Beast/BossSlime/Animations/Default/Run.blockyanim"
+        }
+      ]
+    },
+    "Crouch": {
+      "Animations": [
+        {
+          "Animation": "NPC/Beast/BossSlime/Animations/Default/Crouch.blockyanim"
+        }
+      ]
+    },
+    "Crouch_Walk": {
+      "Animations": [
+        {
+          "Animation": "NPC/Beast/BossSlime/Animations/Default/Crouch_Walk.blockyanim"
+        }
+      ]
+    },
+    "Crouch_Walk_Backward": {
+      "Animations": [
+        {
+          "Animation": "NPC/Beast/BossSlime/Animations/Default/Crouch_Walk_Backward.blockyanim"
+        }
+      ]
+    }
+  },
+  "Icon": "Icons/ModelsGenerated/BossSlime_Medium.png",
+  "IconProperties": {
+    "Scale": 0.25,
+    "Rotation": [
+      0,
+      -45,
+      0
+    ],
+    "Translation": [
+      0,
+      -61
+    ]
+  }
+}

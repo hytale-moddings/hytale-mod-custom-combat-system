@@ -1,0 +1,19 @@
+{
+  "Type": "Simple",
+  "Effects": {
+    "ItemPlayerAnimationsId": "BossSlime_Default",
+    "ItemAnimationId": "Attack",
+    "ClearAnimationOnFinish": false,
+    "ClearSoundEventOnFinish": false
+  },
+  "RunTime": 0.1,
+  "Next": {
+    "Type": "Replace",
+    "DefaultValue": {
+      "Interactions": [
+        "NPC_Attack_Selector_Left"
+      ]
+    },
+    "Var": "Melee_Selector"
+  }
+}

@@ -1,0 +1,395 @@
+{
+  "Type": "Generic",
+  "Appearance": "BossSlime_Giant",
+  "MaxHealth": 450,
+  "KnockbackScale": 0.5,
+  "DisableDamageGroups": ["Self"],
+  "DefaultNPCAttitude": "Ignore",
+  "DefaultPlayerAttitude": "Neutral",
+  "DropList": "Drop_BossSlime_Crown",
+  "IsMemory": true,
+  "MemoriesCategory": "Boss",
+  "StartState": "Idle",
+  "MotionControllerList": [
+    {
+      "Type": "Walk",
+      "MaxWalkSpeed": 6,
+      "Gravity": 10,
+      "RunThreshold": 0.3,
+      "MaxFallSpeed": 15,
+      "MaxRotationSpeed": 360,
+      "Acceleration": 8
+    }
+  ],
+  "CombatConfig": {
+    "EntityEffect": "Shield_Crystal"
+  },
+  "InteractionVars": {
+    "Melee_Start": {
+      "Interactions": [
+        "Boss_Slime_Attack_Start"
+      ]
+    },
+    "Melee_Damage": {
+      "Interactions": [
+        {
+          "Parent": "Boss_Slime_Slam_Damage"
+        }
+      ]
+    }
+  },
+  "Instructions": [
+    {
+      "$Comment": "=== PHASE TRIGGERS (all Continue + Once) ===",
+      "Continue": true,
+      "Instructions": [
+        {
+          "$Comment": "Phase 1 end: HP <= 77.8% (350/450) - lose shield, spawn 1 minion",
+          "Sensor": {
+            "Type": "Self",
+            "Once": true,
+            "Filters": [
+              {
+                "Type": "Stat",
+                "Stat": "Health",
+                "StatTarget": "Value",
+                "RelativeTo": "Health",
+                "RelativeToTarget": "Max",
+                "ValueRange": [0, 0.778]
+              }
+            ]
+          },
+          "Actions": [
+            {
+              "Type": "Spawn",
+              "FanOut": true,
+              "SpawnAngle": 360,
+              "DistanceRange": [3, 5],
+              "CountRange": [1, 1],
+              "DelayRange": [0, 0],
+              "Kind": "Slime"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Continue": true,
+      "Instructions": [
+        {
+          "$Comment": "Phase 2 start: HP <= 55.6% (250/450) - change to Medium, shield back, spawn 2 minions",
+          "Sensor": {
+            "Type": "Self",
+            "Once": true,
+            "Filters": [
+              {
+                "Type": "Stat",
+                "Stat": "Health",
+                "StatTarget": "Value",
+                "RelativeTo": "Health",
+                "RelativeToTarget": "Max",
+                "ValueRange": [0, 0.556]
+              }
+            ]
+          },
+          "Actions": [
+            {
+              "Type": "Appearance",
+              "Appearance": "BossSlime_Medium"
+            },
+            {
+              "Type": "ApplyEntityEffect",
+              "UseTarget": false,
+              "EntityEffect": "Shield_Crystal"
+            },
+            {
+              "Type": "Spawn",
+              "FanOut": true,
+              "SpawnAngle": 360,
+              "DistanceRange": [3, 5],
+              "CountRange": [2, 2],
+              "DelayRange": [0.1, 0.2],
+              "Kind": "Slime"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Continue": true,
+      "Instructions": [
+        {
+          "$Comment": "Phase 2 end: HP <= 38.9% (175/450) - lose shield, spawn 1 minion",
+          "Sensor": {
+            "Type": "Self",
+            "Once": true,
+            "Filters": [
+              {
+                "Type": "Stat",
+                "Stat": "Health",
+                "StatTarget": "Value",
+                "RelativeTo": "Health",
+                "RelativeToTarget": "Max",
+                "ValueRange": [0, 0.389]
+              }
+            ]
+          },
+          "Actions": [
+            {
+              "Type": "Spawn",
+              "FanOut": true,
+              "SpawnAngle": 360,
+              "DistanceRange": [3, 5],
+              "CountRange": [1, 1],
+              "DelayRange": [0, 0],
+              "Kind": "Slime"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Continue": true,
+      "Instructions": [
+        {
+          "$Comment": "Phase 3 start: HP <= 22.2% (100/450) - change to Small, spawn 2 minions",
+          "Sensor": {
+            "Type": "Self",
+            "Once": true,
+            "Filters": [
+              {
+                "Type": "Stat",
+                "Stat": "Health",
+                "StatTarget": "Value",
+                "RelativeTo": "Health",
+                "RelativeToTarget": "Max",
+                "ValueRange": [0, 0.222]
+              }
+            ]
+          },
+          "Actions": [
+            {
+              "Type": "Appearance",
+              "Appearance": "BossSlime_Small"
+            },
+            {
+              "Type": "Spawn",
+              "FanOut": true,
+              "SpawnAngle": 360,
+              "DistanceRange": [2, 4],
+              "CountRange": [2, 2],
+              "DelayRange": [0.1, 0.2],
+              "Kind": "Slime"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$Comment": "=== SHIELD REFRESH Phase 1: HP > 77.8% ===",
+      "Continue": true,
+      "Instructions": [
+        {
+          "Sensor": {
+            "Type": "Self",
+            "Filters": [
+              {
+                "Type": "Stat",
+                "Stat": "Health",
+                "StatTarget": "Value",
+                "RelativeTo": "Health",
+                "RelativeToTarget": "Max",
+                "ValueRange": [0.778, 1.0]
+              }
+            ]
+          },
+          "Actions": [
+            {
+              "Type": "ApplyEntityEffect",
+              "UseTarget": false,
+              "EntityEffect": "Shield_Crystal"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$Comment": "=== SHIELD REFRESH Phase 2: HP between 38.9% and 55.6% ===",
+      "Continue": true,
+      "Instructions": [
+        {
+          "Sensor": {
+            "Type": "Self",
+            "Filters": [
+              {
+                "Type": "Stat",
+                "Stat": "Health",
+                "StatTarget": "Value",
+                "RelativeTo": "Health",
+                "RelativeToTarget": "Max",
+                "ValueRange": [0.389, 0.556]
+              }
+            ]
+          },
+          "Actions": [
+            {
+              "Type": "ApplyEntityEffect",
+              "UseTarget": false,
+              "EntityEffect": "Shield_Crystal"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$Comment": "=== COMBAT BLOCK 1: BodyMotion per state ===",
+      "Continue": true,
+      "Instructions": [
+        {
+          "Sensor": {
+            "Type": "State",
+            "State": "Idle"
+          },
+          "Instructions": [
+            {
+              "Sensor": {
+                "Type": "Player",
+                "Range": 20
+              },
+              "HeadMotion": {
+                "Type": "Watch"
+              },
+              "BodyMotion": {
+                "Type": "Nothing"
+              }
+            },
+            {
+              "Sensor": {
+                "Type": "Any"
+              },
+              "BodyMotion": {
+                "Type": "Wander",
+                "MaxHeadingChange": 45,
+                "RelativeSpeed": 0.3
+              }
+            }
+          ]
+        },
+        {
+          "Sensor": {
+            "Type": "State",
+            "State": "Combat"
+          },
+          "Instructions": [
+            {
+              "Sensor": {
+                "Type": "Player",
+                "Range": 30
+              },
+              "BodyMotion": {
+                "Type": "MaintainDistance",
+                "DesiredDistanceRange": [1.5, 3.5],
+                "MoveThreshold": 0.5,
+                "RelativeForwardsSpeed": 0.6,
+                "RelativeBackwardsSpeed": 0.5,
+                "StrafingDurationRange": [1, 1],
+                "StrafingFrequencyRange": [2, 2]
+              }
+            },
+            {
+              "Sensor": {
+                "Type": "Any"
+              },
+              "BodyMotion": {
+                "Type": "Nothing"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$Comment": "=== COMBAT BLOCK 2: Actions and state transitions ===",
+      "Instructions": [
+        {
+          "Sensor": {
+            "Type": "State",
+            "State": "Idle"
+          },
+          "Instructions": [
+            {
+              "$Comment": "React to damage - enter combat",
+              "Sensor": {
+                "Type": "Damage"
+              },
+              "Actions": [
+                {
+                  "Type": "State",
+                  "State": "Combat"
+                }
+              ]
+            },
+            {
+              "Sensor": {
+                "Type": "Any"
+              },
+              "Actions": [
+                {
+                  "Type": "Nothing"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Sensor": {
+            "Type": "State",
+            "State": "Combat"
+          },
+          "Instructions": [
+            {
+              "$Comment": "Attack when player is close",
+              "Sensor": {
+                "Type": "Player",
+                "Range": 14
+              },
+              "ActionsBlocking": true,
+              "Actions": [
+                {
+                  "Type": "Attack",
+                  "Attack": "Root_NPC_Attack_Melee",
+                  "AttackPauseRange": [1.0, 2.0]
+                },
+                {
+                  "Type": "Timeout",
+                  "Delay": [0.2, 0.2]
+                }
+              ],
+              "HeadMotion": {
+                "Type": "Aim",
+                "RelativeTurnSpeed": 1.5
+              }
+            },
+            {
+              "$Comment": "Return to idle if no player nearby",
+              "Sensor": {
+                "Type": "Not",
+                "Sensor": {
+                  "Type": "Player",
+                  "Range": 40
+                }
+              },
+              "Actions": [
+                {
+                  "Type": "State",
+                  "State": "Idle"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "NameTranslationKey": "server.npcRoles.Boss_Slime_Giant.name"
+}
