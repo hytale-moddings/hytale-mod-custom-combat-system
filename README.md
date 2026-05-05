@@ -13,10 +13,15 @@ Implements a full **Boss Slime boss fight** demonstrating advanced combat mechan
 1. Copy the mod folder to `%APPDATA%/Hytale/UserData/Mods/<FolderName>/` (see `manifest.json` for exact name)
 2. Start a Hytale server with the mod enabled
 
+## Installation Note
+
+This mod **supersedes** the base Slime mod and the loot-tables mod — they all share `Group:Name = HytaleModdingManual:CreateACustomNPC`. Only one version can be installed at a time. This v2.0.0 includes everything from v1.0.0 (base slime) and v1.1.0 (drops) plus the boss fight.
+
 ## Manifest
 
 - **Group:** HytaleModdingManual
-- See `manifest.json` for current Name and Version
+- **Name:** CreateACustomNPC
+- **Version:** 2.0.0
 
 ## Related
 

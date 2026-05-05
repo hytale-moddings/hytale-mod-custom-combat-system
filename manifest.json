@@ -1,8 +1,8 @@
 {
   "Group": "HytaleModdingManual",
   "Name": "CreateACustomNPC",
-  "Version": "1.0.0",
-  "Description": "Implements the Create A NPC tutorial with a custom slime",
+  "Version": "2.0.0",
+  "Description": "Implements the Custom Combat System tutorial with a Boss Slime boss fight",
   "Authors": [
     {
       "Name": "HytaleModdingManual"
